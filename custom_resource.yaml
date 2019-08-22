@@ -1,0 +1,8 @@
+apiVersion: tomcat.apache.org/v1alpha1
+kind: Tomcat
+metadata:
+  name: tomcatdemo
+spec:
+  applicationName: tomcat-demo
+  applicationImage: docker.io/jfclere/tomcat-demo
+  size: 3
