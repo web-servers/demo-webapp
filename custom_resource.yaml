@@ -4,5 +4,7 @@ metadata:
   name: tomcatdemo
 spec:
   applicationName: tomcat-demo
-  applicationImage: docker.io/jfclere/tomcat-demo
+  applicationImage: docker.io/jfclere/tomcat-demo:latest
+  webArchiveImage: docker.io/jfclere/tomcat-maven:latest
+  webAppURL: https://github.com/jfclere/demo-webapp.git
   size: 3
