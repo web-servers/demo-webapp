@@ -34,7 +34,8 @@ public class TestServlet extends HttpServlet {
             "  \"id\": \"%s\",\n" +
             "  \"new\": %s,\n" +
             "  \"server\": \"%s\",\n" +
-            "  \"hostname\": \"%s\"\n" +
+            "  \"hostname\": \"%s\",\n" +
+            "  \"apachecon\": \"1999\"\n" +
             "}";
 
     @Override
