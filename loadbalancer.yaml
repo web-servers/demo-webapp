@@ -4,11 +4,9 @@ metadata:
   labels:
     run: tomcat-demo
   name: tomcat-balancer
-  namespace: tomcat-demo
 spec:
   ports:
-  - nodePort: 30666
-    port: 8080
+  - port: 8080
     protocol: TCP
     targetPort: 8080
   selector:
