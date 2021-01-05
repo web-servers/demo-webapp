@@ -35,6 +35,7 @@ public class TestServlet extends HttpServlet {
             "  \"new\": %s,\n" +
             "  \"server\": \"%s\",\n" +
             "  \"hostname\": \"%s\",\n" +
+            " \"last\": \"%s\",\n" +
             "  \"newtest\": \"2020\"\n" +
             "}";
 
@@ -53,9 +54,10 @@ public class TestServlet extends HttpServlet {
         String isNew = session.isNew() ? "true" : "false";
         String server = InetAddress.getLocalHost().getHostAddress();
         String hostname = InetAddress.getLocalHost().getHostName();
+        String last = session.getLastAccessedTime() + "";
 
         try (PrintWriter out = response.getWriter()) {
-            out.println(String.format(TEMPLATE, counter, id, isNew, server, hostname));
+            out.println(String.format(TEMPLATE, counter, id, isNew, server, hostname, last));
         }
         // Reread the counter
         Integer newcounter = (Integer) session.getAttribute("counter");
