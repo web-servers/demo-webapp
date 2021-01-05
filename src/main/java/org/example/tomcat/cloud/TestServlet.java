@@ -57,5 +57,9 @@ public class TestServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             out.println(String.format(TEMPLATE, counter, id, isNew, server, hostname));
         }
+        // Reread the counter
+        Integer newcounter = (Integer) session.getAttribute("counter");
+        if (newcounter != counter)
+            session.setAttribute("counter", counter);
     }
 }
