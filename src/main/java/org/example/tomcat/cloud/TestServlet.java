@@ -44,11 +44,19 @@ public class TestServlet extends HttpServlet {
         response.setContentType("application/json;charset=UTF-8");
 
         HttpSession session = request.getSession();
-
-        Integer counter = (Integer) session.getAttribute("counter");
-        if (counter == null) counter = 0;
-        counter++;
-        session.setAttribute("counter", counter);
+	Integer counter;
+	if (session.isNew()) {
+	  /* we have a new session */
+	  counter = 0;
+	} else {
+          counter = (Integer) session.getAttribute("counter");
+          if (counter == null) {
+	    counter = 1;
+	  } else {
+            counter++;
+          }
+	  session.setAttribute("counter", counter);
+	}
 
         String id = session.getId();
         String isNew = session.isNew() ? "true" : "false";
@@ -59,9 +67,5 @@ public class TestServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             out.println(String.format(TEMPLATE, counter, id, isNew, server, hostname, last));
         }
-        // Reread the counter
-        Integer newcounter = (Integer) session.getAttribute("counter");
-        if (newcounter != counter)
-            session.setAttribute("counter", counter);
     }
 }
