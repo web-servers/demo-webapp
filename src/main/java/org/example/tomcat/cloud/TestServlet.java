@@ -36,8 +36,8 @@ public class TestServlet extends HttpServlet {
             "  \"server\": \"%s\",\n" +
             "  \"hostname\": \"%s\",\n" +
             "  \"last\": \"%s\",\n" +
-            "  \"newtest\": \"2020\"\n" +
-            "}";
+            "  \"newtest\": \"2021\"\n" +
+            "}\n";
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
