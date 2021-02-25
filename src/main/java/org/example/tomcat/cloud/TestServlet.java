@@ -36,7 +36,7 @@ public class TestServlet extends HttpServlet {
             "  \"server\": \"%s\",\n" +
             "  \"hostname\": \"%s\",\n" +
             "  \"last\": \"%s\",\n" +
-            "  \"newtest\": \"2021\"\n" +
+            "  \"newtest\": \"2022\"\n" +
             "}\n";
 
     @Override
