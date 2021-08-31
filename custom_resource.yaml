@@ -4,7 +4,12 @@ metadata:
   name: tomcatdemo
 spec:
   applicationName: tomcat-demo
-  applicationImage: docker.io/jfclere/tomcat-demo:latest
-  webArchiveImage: docker.io/jfclere/tomcat-maven:latest
-  webAppURL: https://github.com/jfclere/demo-webapp.git
-  size: 3
+  replicas: 3
+  webImage:
+    applicationImage: quay.io/jfclere/tomcat10:latest
+    webApp:
+      sourceRepositoryURL: https://github.com/jfclere/demo-webapp
+      # sourceRepositoryRef is not required by default but it is needed to get the correct source code for the webapp
+      sourceRepositoryRef: "jakartaEE"
+      builder:
+        image: maven:3.8.1-openjdk-8
