@@ -1,5 +1,5 @@
-apiVersion: tomcat.apache.org/v1alpha1
-kind: Tomcat
+apiVersion: web.servers.org/v1alpha1
+kind: WebServer
 metadata:
   name: tomcatdemo
 spec:
