@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: task-pv-volume
   labels:
-    type: local
+    application: tomcat-demo
 spec:
   storageClassName: manual
   capacity:
