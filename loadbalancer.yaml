@@ -1,9 +1,6 @@
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    WebServer: tomcatdemo
-    deploymentConfig: tomcat-demo
   name: tomcat-balancer
 spec:
   ports:
@@ -11,7 +8,8 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    run: tomcat-demo
+    WebServer: tomcatdemo
+    deploymentConfig: tomcat-demo
   sessionAffinity: None
   type: LoadBalancer
 status:
