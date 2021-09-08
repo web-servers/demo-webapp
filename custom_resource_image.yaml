@@ -1,0 +1,9 @@
+apiVersion: web.servers.org/v1alpha1
+kind: WebServer
+metadata:
+  name: tomcatdemo
+spec:
+  applicationName: tomcat-demo
+  replicas: 3
+  webImage:
+    applicationImage: quay.io/jfclere/tomcat-demo
