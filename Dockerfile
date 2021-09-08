@@ -1,4 +1,4 @@
-FROM jfclere/tomcat10-builder:latest
+FROM quay.io/jfclere/tomcat10-builder:latest
 LABEL Description="Tomcat webapp image to use with the JWS operator"
 VOLUME /tmp
 
