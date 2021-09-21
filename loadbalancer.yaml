@@ -9,7 +9,6 @@ spec:
     targetPort: 8080
   selector:
     WebServer: tomcatdemo
-    deploymentConfig: tomcat-demo
   sessionAffinity: None
   type: LoadBalancer
 status:
