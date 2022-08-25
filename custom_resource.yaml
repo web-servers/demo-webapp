@@ -9,7 +9,7 @@ spec:
     applicationImage: quay.io/jfclere/tomcat10:latest
     webApp:
       sourceRepositoryURL: https://github.com/jfclere/demo-webapp
-      # sourceRepositoryRef is not required by default but it is needed to get the correct source code for the webapp
-      sourceRepositoryRef: "jakartaEE"
+      # where to put the built image (you need to have set the right default secrets).
+      webAppWarImage: quay.io/jfclere/tomcat-demo
       builder:
-        image: maven:3.8.1-openjdk-8
+        image: quay.io/jfclere/image-builder-jws
