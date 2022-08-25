@@ -11,3 +11,6 @@ mvn package
 # builds  `target/demo-1.0.war`
 ```
 
+# Dockerfile
+The dockerfile just building a war in /tmp, it is for testing purpose, if you want something usable look to the JWS operator script.
+
