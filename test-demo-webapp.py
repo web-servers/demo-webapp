@@ -28,13 +28,16 @@ class testdemowebapp:
           return False
     return True
 
-  # Return False if sticky True otherwise
+  # Return True if sticky False if error or not sticky
   def request_response_loop(self, n):
     i = 0
-    while self.request_response():
-      i = i + 1
-      if i == n:
-        return True
+    try:
+      while self.request_response():
+        i = i + 1
+        if i == n:
+          return True
+    except:
+      return False
     return False
 
   def start(result_queue, n, tid):
