@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.InetAddress;
@@ -35,8 +36,7 @@ public class TestServlet extends HttpServlet {
             "  \"new\": %s,\n" +
             "  \"server\": \"%s\",\n" +
             "  \"hostname\": \"%s\",\n" +
-            "  \"last\": \"%s\",\n" +
-            "  \"newtest\": \"2022\"\n" +
+            "  \"last\": \"%s\"\n" +
             "}\n";
 
     @Override
@@ -44,19 +44,18 @@ public class TestServlet extends HttpServlet {
         response.setContentType("application/json;charset=UTF-8");
 
         HttpSession session = request.getSession();
-	Integer counter;
-	if (session.isNew()) {
-	  /* we have a new session */
-	  counter = 0;
-	} else {
-          counter = (Integer) session.getAttribute("counter");
-          if (counter == null) {
-	    counter = 1;
-	  } else {
+        Integer counter;
+        if (session.isNew()) {
+            /* we have a new session */
+            counter = 0;
+        } else {
+            counter = (Integer) session.getAttribute("counter");
+            if (counter == null) {
+                counter = 0;
+            }
             counter++;
-          }
-	  session.setAttribute("counter", counter);
-	}
+            session.setAttribute("counter", counter);
+        }
 
         String id = session.getId();
         String isNew = session.isNew() ? "true" : "false";

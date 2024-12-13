@@ -8,8 +8,7 @@ import queue
 class testdemowebapp:
 
   def __init__(self):
-    self.url =  "http://localhost:8000/demo-1.0/demo"
-    self.counter = 0
+    self.url = "http://localhost:8000/demo-1.0/demo"
     self.JSESSIONID = None
 
   # Return False if sticky True otherwise
@@ -45,6 +44,7 @@ class testdemowebapp:
     result_queue.put((tid, 'done' if mydemo.request_response_loop(n) else 'failed'))
 
 if __name__ == "__main__":
+  res = "OK"
   args = sys.argv[1:]
   count = 1
   loop = 1000
@@ -64,5 +64,8 @@ if __name__ == "__main__":
   for i in range(count):
     r = q.get()
     if r[1] != 'done':
-      print("Failed")
+      res = "NOK"
       break
+
+  print(res)
+
