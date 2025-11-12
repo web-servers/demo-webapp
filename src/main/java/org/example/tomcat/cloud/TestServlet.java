@@ -36,7 +36,7 @@ public class TestServlet extends HttpServlet {
             "  \"new\": %s,\n" +
             "  \"server\": \"%s\",\n" +
             "  \"hostname\": \"%s\",\n" +
-            "  \"last\": \"%s\"\n" +
+            "  \"last\": \"%s\",\n" +
             "  \"branch\": \"%s\"\n" +
             "}\n";
 
