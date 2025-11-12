@@ -37,6 +37,7 @@ public class TestServlet extends HttpServlet {
             "  \"server\": \"%s\",\n" +
             "  \"hostname\": \"%s\",\n" +
             "  \"last\": \"%s\"\n" +
+            "  \"branch\": \"%s\"\n" +
             "}\n";
 
     @Override
@@ -62,9 +63,10 @@ public class TestServlet extends HttpServlet {
         String server = InetAddress.getLocalHost().getHostAddress();
         String hostname = InetAddress.getLocalHost().getHostName();
         String last = session.getLastAccessedTime() + "";
+        String branch = "updated";
 
         try (PrintWriter out = response.getWriter()) {
-            out.println(String.format(TEMPLATE, counter, id, isNew, server, hostname, last));
+            out.println(String.format(TEMPLATE, counter, id, isNew, server, hostname, last, branch));
         }
     }
 }
